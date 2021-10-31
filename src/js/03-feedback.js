@@ -39,5 +39,7 @@ function populateFormEl() {
   if (parsedSavedInformation) {
     inputEl.value = parsedSavedInformation.email;
     textareaEl.value = parsedSavedInformation.message;
+    formData.message = parsedSavedInformation.message;
+    formData.email = parsedSavedInformation.email;
   }
 }
