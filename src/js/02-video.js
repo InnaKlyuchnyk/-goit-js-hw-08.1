@@ -14,20 +14,24 @@ function updateVideoTime(event) {
 
 const time = localStorage.getItem(STORAGE_KEY);
 const parsedTime = JSON.parse(time);
-if (parsedTime === null) {
-  return;
+startTimePlaingVideo();
+
+function startTimePlaingVideo() {
+  if (parsedTime === null) {
+    return;
+  }
+  const timeForStartVideo = parsedTime.seconds;
+
+  player
+    .setCurrentTime(timeForStartVideo)
+    .then(function (seconds) {})
+    .catch(function (error) {
+      switch (error.name) {
+        case 'RangeError':
+          break;
+
+        default:
+          break;
+      }
+    });
 }
-const timeForStartVideo = parsedTime.seconds;
-
-player
-  .setCurrentTime(timeForStartVideo)
-  .then(function (seconds) {})
-  .catch(function (error) {
-    switch (error.name) {
-      case 'RangeError':
-        break;
-
-      default:
-        break;
-    }
-  });
