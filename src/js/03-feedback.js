@@ -18,6 +18,10 @@ function onBtnSubmit(event) {
   const formElements = event.currentTarget.elements;
   const email = formElements.email.value;
   const message = formElements.message.value;
+
+  if (email === '' || message === '') {
+    return;
+  }
   const formInfomation = {
     email,
     message,
